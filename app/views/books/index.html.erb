@@ -23,20 +23,29 @@
 </table>
 
 <h2>New book</h2>
+
+<div id="error_explanation">
 <% if @book.errors.any? %>
+<h2>2 errors prohibited this book from being save</h2>
  <ul>
   <% @book.errors.full_messages.each do |message| %>
   <li><%= message %></li>
   <% end %>
   </ul>
 <% end %>
+</div>
 <%= form_with model:@book do |f|%>
 
+<div class="field">
  <h4>Title</h4>
  <%= f.text_field:title %>
+</div>
+
+<div class="field">
  <h4>Body</h4>
  <%= f.text_area:body %>
+</div>
  
- <p><%= f.submit 'Create Book'%></p>
+ <%= f.submit 'Create Book'%>
  
 <% end %>
