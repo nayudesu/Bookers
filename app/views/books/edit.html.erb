@@ -1,4 +1,15 @@
 <h1>Editing Book</h1>
+<div id="error_explanation">
+<% if @book.errors.any? %>
+<h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being save</h2>
+ <ul>
+  <% @book.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
+</div>
+
 <%= form_with model:@book, method: :patch do |f| %>
 
 <h4>Title</h4>
